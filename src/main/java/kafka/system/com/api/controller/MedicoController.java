@@ -1,6 +1,6 @@
 package kafka.system.com.api.controller;
 
-import kafka.system.com.api.endereco.Endereco;
+import jakarta.validation.Valid;
 import kafka.system.com.api.medico.DadosCadastroMedico;
 import kafka.system.com.api.medico.Medico;
 import kafka.system.com.api.medico.MedicoRepository;
@@ -20,7 +20,7 @@ public class MedicoController {
 
     @PostMapping // "Mostra" para o método que quando receber um post no /medicos é para chamar esse método
     @Transactional
-    public void cadastrar(@RequestBody DadosCadastroMedico dados){
+    public void cadastrar(@RequestBody @Valid DadosCadastroMedico dados){
         Medico medico = new Medico(dados);
         //System.out.println("teste: " + dados.endereco());
         repository.save(medico);
