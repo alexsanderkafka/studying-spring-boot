@@ -2,14 +2,14 @@ package kafka.system.com.api.controller;
 
 import jakarta.validation.Valid;
 import kafka.system.com.api.medico.DadosCadastroMedico;
+import kafka.system.com.api.medico.DadosListagemMedico;
 import kafka.system.com.api.medico.Medico;
 import kafka.system.com.api.medico.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("medicos")
@@ -24,5 +24,10 @@ public class MedicoController {
         Medico medico = new Medico(dados);
         //System.out.println("teste: " + dados.endereco());
         repository.save(medico);
+    }
+
+    @GetMapping
+    public List<DadosListagemMedico> listar(){
+        return repository.findAll().stream().map(DadosListagemMedico::new).toList();
     }
 }
