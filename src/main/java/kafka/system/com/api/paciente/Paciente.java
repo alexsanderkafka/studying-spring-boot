@@ -25,8 +25,10 @@ public class Paciente {
     private String telefone;
     @Embedded
     private Endereco endereco;
+    private boolean ativo;
 
     public Paciente(DadosCadastroPaciente dadosCadastroPaciente){
+        this.ativo = true;
         this.nome = dadosCadastroPaciente.nome();
         this.email = dadosCadastroPaciente.email();
         this.telefone = dadosCadastroPaciente.telefone();
@@ -92,5 +94,9 @@ public class Paciente {
         if(dados.endereco() != null){
             this.endereco.atualizarInformacoesEndereco(dados.endereco());
         }
+    }
+
+    public void desativarPaciente() {
+        this.ativo = false;
     }
 }
