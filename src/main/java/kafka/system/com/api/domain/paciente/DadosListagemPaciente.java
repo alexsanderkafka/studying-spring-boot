@@ -1,6 +1,4 @@
-package kafka.system.com.api.paciente;
-
-import kafka.system.com.api.medico.DadosListagemMedico;
+package kafka.system.com.api.domain.paciente;
 
 public record DadosListagemPaciente(Long id, String nome, String email, String cpf) {
 

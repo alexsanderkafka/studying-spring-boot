@@ -1,4 +1,4 @@
-package kafka.system.com.api.endereco;
+package kafka.system.com.api.domain.endereco;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

@@ -1,4 +1,4 @@
-package kafka.system.com.api.paciente;
+package kafka.system.com.api.domain.paciente;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

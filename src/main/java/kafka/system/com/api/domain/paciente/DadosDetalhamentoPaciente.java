@@ -1,6 +1,6 @@
-package kafka.system.com.api.paciente;
+package kafka.system.com.api.domain.paciente;
 
-import kafka.system.com.api.endereco.Endereco;
+import kafka.system.com.api.domain.endereco.Endereco;
 
 public record DadosDetalhamentoPaciente(Long id, String nome, String email, String telefone, String cpf, Endereco endereco) {
 

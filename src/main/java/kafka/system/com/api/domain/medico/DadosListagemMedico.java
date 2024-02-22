@@ -1,4 +1,4 @@
-package kafka.system.com.api.medico;
+package kafka.system.com.api.domain.medico;
 
 public record DadosListagemMedico(Long id, String nome, String email, String crm, Especialidade especialidade) {
 

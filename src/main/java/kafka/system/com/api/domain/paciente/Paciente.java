@@ -1,7 +1,7 @@
-package kafka.system.com.api.paciente;
+package kafka.system.com.api.domain.paciente;
 
 import jakarta.persistence.*;
-import kafka.system.com.api.endereco.Endereco;
+import kafka.system.com.api.domain.endereco.Endereco;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

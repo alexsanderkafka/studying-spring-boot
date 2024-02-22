@@ -1,9 +1,9 @@
-package kafka.system.com.api.paciente;
+package kafka.system.com.api.domain.medico;
 
 import jakarta.validation.constraints.NotNull;
-import kafka.system.com.api.endereco.DadosEndereco;
+import kafka.system.com.api.domain.endereco.DadosEndereco;
 
-public record DadosAtualizacaoPaciente(
+public record DadosAtualizacaoMedico(
         @NotNull
         Long id,
         String nome,
