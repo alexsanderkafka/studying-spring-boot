@@ -3,6 +3,7 @@ package kafka.system.com.api.controller;
 import jakarta.validation.Valid;
 import kafka.system.com.api.domain.usuario.DadosAuteticacao;
 import kafka.system.com.api.domain.usuario.Usuario;
+import kafka.system.com.api.infra.security.DadosTokenJTW;
 import kafka.system.com.api.infra.security.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,9 +26,11 @@ public class AutenticacaoController {
 
     @PostMapping
     public ResponseEntity efetuarLogin(@RequestBody @Valid DadosAuteticacao dados){
-        var token = new UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
-        var authentication = manager.authenticate(token);
-
-        return ResponseEntity.ok(tokenService.gerarToken((Usuario) authentication.getPrincipal()));
+        var authenticationToken = new UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
+        var authentication = manager.authenticate(authenticationToken);
+        
+        var tokenJWT = tokenService.gerarToken((Usuario) authentication.getPrincipal());
+        
+        return ResponseEntity.ok(new DadosTokenJTW(tokenJWT));
     }
 }
