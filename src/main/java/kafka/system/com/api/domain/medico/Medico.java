@@ -99,6 +99,14 @@ public class Medico {
     }
 
 
+    public boolean getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+
     public void atualizarInformacoes(DadosAtualizacaoMedico dados) {
         if(dados.nome() != null){
             this.nome = dados.nome();

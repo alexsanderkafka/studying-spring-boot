@@ -84,6 +84,14 @@ public class Paciente {
         this.endereco = endereco;
     }
 
+    public boolean getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+
     public void atualizaInformacoes(DadosAtualizacaoPaciente dados) {
         if(dados.nome() != null){
             this.nome = dados.nome();
