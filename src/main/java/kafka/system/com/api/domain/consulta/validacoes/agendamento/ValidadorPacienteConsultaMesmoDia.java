@@ -1,4 +1,4 @@
-package kafka.system.com.api.domain.consulta.validacoes;
+package kafka.system.com.api.domain.consulta.validacoes.agendamento;
 
 import kafka.system.com.api.domain.ValidacaoException;
 import kafka.system.com.api.domain.consulta.ConsultaRepository;

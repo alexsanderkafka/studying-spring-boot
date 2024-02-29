@@ -1,7 +1,8 @@
 package kafka.system.com.api.domain.consulta;
 
 import kafka.system.com.api.domain.ValidacaoException;
-import kafka.system.com.api.domain.consulta.validacoes.ValidadorAgendamentoDeConsulta;
+import kafka.system.com.api.domain.consulta.validacoes.agendamento.ValidadorAgendamentoDeConsulta;
+import kafka.system.com.api.domain.consulta.validacoes.cancelamento.ValidadorCancelamentoDeConsulta;
 import kafka.system.com.api.domain.medico.Medico;
 import kafka.system.com.api.domain.medico.MedicoRepository;
 import kafka.system.com.api.domain.paciente.PacienteRepository;
@@ -24,6 +25,9 @@ public class AgendaDeConsulta {
 
     @Autowired
     private List<ValidadorAgendamentoDeConsulta> validadores;
+
+    @Autowired
+    private List<ValidadorCancelamentoDeConsulta> validadoresCancelamento;
 
     public DadosDetalhamentoConsulta agendar(DadosAgendamentoConsulta dados){
 
@@ -67,6 +71,8 @@ public class AgendaDeConsulta {
         if(!consultaRepository.existsById(dados.idConsulta())){
             throw new ValidacaoException("Id da consulta não existe!");
         }
+
+        validadoresCancelamento.forEach(v -> v.validadorCancelamento(dados));
 
         var consulta = consultaRepository.getReferenceById(dados.idConsulta());
         consulta.cancelar(dados.motivo());
